@@ -6,6 +6,6 @@ class Webhooks::To::Slack
   end
 
   def post
-    HttpPostJob.perform_later(@webhook_uri, { payload: {text: @text, link_names: 1, channel: "#mention-of-esa-and-gh"}.to_json })
+    HttpPostJob.perform_later(@webhook_uri, { payload: {text: @text, username: @mention, link_names: 1, channel: "#mention-of-esa-and-gh"}.to_json })
   end
 end
